@@ -1,0 +1,1 @@
+ffmpeg -i input.mkv -c:v libvpx-vp9 -crf 30 -b:v 0 -ss 1:20 -an output.webm
