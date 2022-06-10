@@ -3,6 +3,7 @@ import TetchrisDemo from '../../res/tetchris_demo.webm'
 import AWSCloudPract from '../../res/cert_badges/aws_cloud_practitioner.png'
 import AzureFund from '../../res/cert_badges/azure_fundamentals.png'
 import AzureAdmin from '../../res/cert_badges/azure_administrator.png'
+import AzureDevOps from '../../res/cert_badges/azure_devops_engineer.png'
 import GitHub from '../../res/link_logos/github.png'
 import LinkedIn from '../../res/link_logos/linkedin.png'
 import DownloadCV from '../../res/download_cv.png'
@@ -23,11 +24,12 @@ export default function HomePage() {
                             <img className="home-badgeimg" src={AWSCloudPract}></img>
                             <img className="home-badgeimg" src={AzureFund}></img>
                             <img className="home-badgeimg" src={AzureAdmin}></img>
+                            <img className="home-badgeimg" src={AzureDevOps}></img>
                         </div>
                     </div>
                     <div className="home-content-text" id="home-tetchris-text">
                         <h3>Web technology.</h3>
-                        <Link to="/tetchris"><video autoPlay loop muted playsinline id="home-tetchris-img" src={TetchrisDemo}></video></Link>
+                        <Link to="/tetchris"><video autoPlay loop muted playsInline id="home-tetchris-img" src={TetchrisDemo}></video></Link>
 
                     </div>
                 </div>
