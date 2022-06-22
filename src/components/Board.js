@@ -23,14 +23,9 @@ export default class Board extends React.Component {
     }
     this.username = '';
     this.scoreList = [];
-    this.onChange = this.onChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async componentDidMount() {
-    const response = await fetch(`https://api.chrisvroegop.com/getscores`);
-    const json = await response.json();
-    this.scoreList = json.Items;
+  componentDidMount = async () => {
     this.updateScoreboard();
   }
 
@@ -255,69 +250,39 @@ export default class Board extends React.Component {
     }
   }
 
+  updateScoreboard = async () => {
+    const response = await fetch(`https://api.chrisvroegop.com/getscores`);
+    const json = await response.json();
+    this.scoreList = json.Items;
 
-  //BRADEN SMITH ADDITION ===========
-  onChange(e) {
-    this.setState({ userName: e.target.value });
-  }
-
-
-  //Calls to update scoreboard
-  updateScoreboard = () => {
-    var newScore = [];
-
-    this.scoreList.forEach(function (object) {
-      newScore.push([object.score, object.player]);
-    });
-
-    //Order the array from highest to lowest
+    const newScore = this.scoreList.map((s) => [s.score, s.player]);
+    // Order the array from highest to lowest
     newScore.sort((a, b) => b[0] - a[0]);
 
-
     //  Loops through props scoreboard and places it in a html array
-    //   this.scoreList = this.scoreList.map((scoreList , index) => {
-    //   return <li key={index}>{scoreList}</li>
-    // })
-
-    console.log(newScore)
-
-    this.setState({ scoreboard: [] })
-    for (const [index] of newScore.entries()) {
-      this.state.scoreboard.push(
-        <div className="tetchris-scoreboard-row">
+    const newScoreboard = [];
+    for (let i = 0; i < newScore.length; i++) {
+      newScoreboard.push(
+        <div key={i} className="tetchris-scoreboard-row">
           <p className="tetchris-scoreboard-list">
-            {index + 1}.&nbsp; <b>{`${newScore[index][1].S}`} </b>
+            {i + 1}.&nbsp; <b>{`${newScore[i][1].S}`} </b>
           </p>
           <p>
-            {`${newScore[index][0].N}`}
+            {`${newScore[i][0].N}`}
           </p>
         </div>
       )
     }
-    this.setState({ scoreboard: this.state.scoreboard })
+    this.setState({ scoreboard: newScoreboard })
   }
 
-
-  scoreBoardUpdate = () => {
-
-    this.uploadScore();
-
-  }
-
-  async uploadScore () {
-    //CURRENT SYSTEM:
-    //If there is a number that is completely new, it will place it and remove the lowest
-    // IF there is an already existing number, it will replace the name of the person, therefore not adding them to scoreboard 
-    const response = await fetch('https://api.chrisvroegop.com/putscore?player=' + this.state.userName + '&score=' + this.score, {
+  uploadScore = async () => {
+    await fetch(`https://api.chrisvroegop.com/putscore?player=${this.state.userName}&score=${this.score}`, {
       method: 'POST'
     })
 
-    // const response = fetch(`https://api.chrisvroegop.com/getscores`);
-    // const json = response.json();
-    // console.log(json)
     this.updateScoreboard();
     this.startResetButton();
-
   }
 
 
@@ -331,48 +296,45 @@ export default class Board extends React.Component {
       cellId = cellId - this.props.width;
     }
 
-
     return ( // tabIndex allows div to receive focus
-      <div className="tetchris-game-container" tabIndex={0} onKeyDown={this.handleKeyPress}>
-        <div className="tetchris-game-board-ratio">
+      <div className="tetchris-game-scoreboard-wrapper">
+        <div className="tetchris-game-container" tabIndex={0} onKeyDown={this.handleKeyPress}>
+          <div className="tetchris-game-board-ratio">
 
-          <table ref={this.ref} className={"tetchris-game-board"}>
-            <tbody>{rows}</tbody>
-          </table>
+            <table ref={this.ref} className={"tetchris-game-board"}>
+              <tbody>{rows}</tbody>
+            </table>
 
-          {this.gameLost ?
-            <form className="tetchris-game-details" style={{ display: this.gameRunning ? "none" : "block" }}>
-              <p>Game Over!</p>
-              <p>Enter your name:</p>
-              <input type='text' value={this.state.userName} onChange={this.onChange}></input>
-              <button className="tetchris-button" onClick={this.scoreBoardUpdate}>Submit</button>
-            </form>
-            :
-            <p style={{ display: this.gameRunning ? "none" : "block" }} className="tetchris-game-details">
-              Click start to begin!
-              You can use the buttons to the right or the arrow keys
-            </p>
-          }
-
-
-
-        </div>
-        <TetchrisGameInfo
-          score={this.score}
-          level={this.level}
-          linesToNextLevel={this.linesToNextLevel}
-          startResetButton={this.startResetButton}
-          leftButton={this.leftButton}
-          downButton={this.downButton}
-          rightButton={this.rightButton}
-          rotateClockwiseButton={this.rotateClockwiseButton}
-          gameReset={this.gameReset} />
-        <br />
-
-        <TetchrisScoreboard
-          scoreboard={this.state.scoreboard}
-          scoreList={this.state.scoreList}
-        />
+            {this.gameLost ?
+              <form className="tetchris-game-details" style={{ display: this.gameRunning ? "none" : "block" }}>
+                <p>Game Over!</p>
+                <p>Enter your name:</p>
+                <input
+                  type='text'
+                  value={this.state.userName}
+                  onChange={(e) => { this.setState({ userName: e.target.value }); }}/>
+                <button className="tetchris-button" onClick={this.uploadScore}>Submit</button>
+              </form>
+              :
+              <p style={{ display: this.gameRunning ? "none" : "block" }} className="tetchris-game-details">
+                Click start to begin!
+                You can use the buttons to the right or the arrow keys
+              </p>
+            }
+          </div>
+          <TetchrisGameInfo
+            score={this.score}
+            level={this.level}
+            linesToNextLevel={this.linesToNextLevel}
+            startResetButton={this.startResetButton}
+            leftButton={this.leftButton}
+            downButton={this.downButton}
+            rightButton={this.rightButton}
+            rotateClockwiseButton={this.rotateClockwiseButton}
+            gameReset={this.gameReset} />
+          <br />
+          </div>
+        <TetchrisScoreboard scoreboard={this.state.scoreboard}/>
 
       </div>
     );
