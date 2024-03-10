@@ -1,0 +1,102 @@
+.header-wrapper {
+  background-color: rgb(40, 40, 40);
+  padding-top: 20px;
+  flex: 0 1 auto;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+  
+@media only screen and (max-width: 600px) {
+  #logo {
+    padding-right: 20px;
+    padding-bottom: 10px;
+    height: 70px;
+  }
+}
+  
+#logo {
+  padding-right: 30px;
+  padding-bottom: 20px;
+  height: 100px;
+  max-width: 385px;
+}
+
+.header-buttons {
+  align-items: center;
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.header-buttons li {
+  color:rgb(207, 207, 207);
+  list-style-type: none;
+  display: inline;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 25px;
+}
+
+.header-buttons li:hover a {
+  color: rgb(129, 129, 129);
+}
+
+.header-buttons a:link { text-decoration: none; color:white;}
+.header-buttons a:visited { text-decoration: none; color:white;}
+.header-buttons a:hover { text-decoration: none; color:white;}
+.header-buttons a:active { text-decoration: none; color:white;}
+
+/* Logo animations */
+
+/* Initial reveal */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-230px);
+  }
+  /* 
+  Insert delay while keeping the right bracket off-screen. 
+  Having the bracket's initial position on the left and using `animation-fill-mode: forwards` breaks further animations 
+  */ 
+  50% {
+    transform: translateX(-230px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes shiftClip {
+  0% {
+    width: 55px;
+  }
+  50% {
+    width: 55px;
+  }
+  100% {
+    width: 375px;
+  }
+}
+
+#logo-name {
+  clip-path: url(#logo-clip-path)
+}
+#logo-clip-rect {
+  animation: shiftClip 2.25s ease-out 0.2s 1 normal forwards;
+}
+#logo-right-bracket {
+  animation: slideInFromLeft 2.25s ease-out 0s 1 normal;
+}
+
+/* Animation on hover */
+#logo-left-bracket {
+  transition: transform 0.5s;
+}
+#logo-right-bracket {
+  transition: transform 0.5s;
+}
+#logo:hover #logo-left-bracket {
+  transform: translateX(-15px);
+}
+#logo:hover #logo-right-bracket {
+  transform: translateX(15px);
+}

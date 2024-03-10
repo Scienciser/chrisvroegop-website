@@ -1,0 +1,45 @@
+.tetchris-game-board {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.cell {
+  font-size: 0.1px; /* Prevent aspect ratio being broken due to rows overflowing */
+  height: 5%;
+  width: 10%;
+  border: 1px solid black;
+}
+.empty-cell {
+  background-color: black;
+}
+
+.shape-i {
+  background-color:cyan;
+}
+
+.shape-j {
+  background-color:cornflowerblue;
+}
+
+.shape-l {
+  background-color: orange;
+}
+
+.shape-o {
+  background-color:gold;
+}
+
+.shape-s {
+  background-color: chartreuse;
+}
+
+.shape-t {
+  background-color: blueviolet;
+}
+
+.shape-z {
+  background-color: red;
+}

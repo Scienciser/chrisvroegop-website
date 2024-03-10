@@ -1,17 +1,17 @@
 # [chrisvroegop.com](https://chrisvroegop.com)
 
-This is my personal website, accessible [here](https://chrisvroegop.com). It is an SPA written in React.
+This is my personal website, accessible [here](https://chrisvroegop.com). It is an SPA written in React and TypeScript, with tooling from Vite.
 
 ## Local development
 
 ```
 npm install
-npm run serve
+npm run dev
 ```
-This runs the app at `localhost:8080` using `webpack-dev-server`.
+This runs the site at `localhost:5173`.
 
 ## Production build
 ```
-npm run prod:bundler
+npm run build
 ```
 Files are output to the `dist/` directory.

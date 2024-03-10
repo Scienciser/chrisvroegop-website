@@ -1,0 +1,73 @@
+#home-maincontent-wrapper {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  margin: 20px 20px 0px 20px;
+}
+
+#home-content-wrapper {
+  flex: 1 1 70%;
+}
+
+#home-img-wrapper {
+  flex: 1 1 30%;
+  min-width: 300px;
+  max-width: 550px;
+  padding: 20px;
+}
+
+.home-content-text {
+  background-color: rgb(50,50,50);
+  padding: 20px;
+  margin: 20px;
+  color: white;
+}
+
+.home-content-text > h2 {
+  font-size: 90px;
+  padding-bottom: 15px;
+}
+
+.home-content-text > h3 {
+  font-size: 30px;
+  padding-bottom: 15px;
+  display: block;
+}
+
+#home-personalintro-img {
+  width: 100%;
+}
+
+#home-badges-wrapper {
+  width: fit-content;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .home-badgeimg {
+    height:100px;
+    padding: 5px;
+  }
+}
+
+.home-badgeimg {
+  height: 130px;
+  padding: 10px;
+}
+
+#home-tetchris-img {
+  width: 100%;
+  max-width: 200px;
+}
+  
+#home-footer-wrapper {
+  padding: 0px 20px 0px 20px;
+}
+
+#home-footer-links {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

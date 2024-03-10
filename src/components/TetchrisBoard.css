@@ -1,0 +1,32 @@
+.tetchris-game-scoreboard-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tetchris-game-scoreboard-wrapper:focus {
+  outline: none;
+}
+
+
+.tetchris-game-container {
+  display: flex;
+}
+
+.tetchris-game-board-ratio {
+  aspect-ratio: 1/2;
+  height: calc(91vh - 120px);
+  position: relative;
+}
+
+@media only screen and (max-aspect-ratio: 9/14) {
+  .tetchris-game-board-ratio {
+    height: calc(85vh - 100px);
+  }
+}
+
+
+@media only screen and (max-aspect-ratio: 9/17) {
+  .tetchris-game-board-ratio {
+    height: calc(68vh - 100px);
+  }
+}

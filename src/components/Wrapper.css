@@ -1,0 +1,15 @@
+.site-wrapper {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .site-wrapper {
+    height: 80%;
+  }
+}  
+
+.body-wrapper {
+  flex: 1 1 auto;
+}

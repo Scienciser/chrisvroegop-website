@@ -1,0 +1,10 @@
+.footer-wrapper {
+  flex: 0 1 auto;
+}
+  
+.footer-wrapper p {
+  text-align: center;
+  font-size: 10px;
+  color: rgb(169, 169, 169);
+  padding-bottom: 10px;
+}

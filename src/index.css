@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500;700&display=swap');
+
+/* GLOBALS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(70, 70, 70);
+  font-family: 'Inconsolata', monospace;
+  color: rgb(207, 207, 207);
+}
+

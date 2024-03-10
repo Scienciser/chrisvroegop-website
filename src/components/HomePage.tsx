@@ -1,15 +1,16 @@
-import ProfilePicture from '../../res/profile_picture.jpg'
-import TetchrisDemo from '../../res/tetchris_demo.webm'
-import AWSCloudPract from '../../res/cert_badges/aws_cloud_practitioner.png'
-import AzureFund from '../../res/cert_badges/azure_fundamentals.png'
-import AzureAdmin from '../../res/cert_badges/azure_administrator.png'
-import AzureDevOps from '../../res/cert_badges/azure_devops_engineer.png'
-import GitHub from '../../res/link_logos/github.png'
-import LinkedIn from '../../res/link_logos/linkedin.png'
-import DownloadCV from '../../res/download_cv.png'
+import ProfilePicture from '../assets/profile_picture.jpg'
+import TetchrisDemo from '../assets/tetchris_demo.webm'
+import AWSCloudPract from '../assets/cert_badges/aws_cloud_practitioner.png'
+import AzureFund from '../assets/cert_badges/azure_fundamentals.png'
+import AzureAdmin from '../assets/cert_badges/azure_administrator.png'
+import AzureDevOps from '../assets/cert_badges/azure_devops_engineer.png'
+import GitHub from '../assets/link_logos/github.png'
+import LinkedIn from '../assets/link_logos/linkedin.png'
+import DownloadCV from '../assets/link_logos/download_cv.png'
 import { Link } from "react-router-dom";
+import "./HomePage.css";
 
-export default function HomePage() {
+function HomePage() {
     return (
         <>
             <div id="home-maincontent-wrapper">
@@ -42,13 +43,14 @@ export default function HomePage() {
                 <div className="home-content-text" id="home-footer-links">
                     <h3>Check out my links:</h3>
                     <div id="home-badges-wrapper">
-                        <a href="https://youtu.be/dQw4w9WgXcQ"><img className="home-badgeimg" src={DownloadCV} ></img></a>
+                        <a href="/cv_chris_vroegop.pdf"><img className="home-badgeimg" src={DownloadCV} ></img></a>
                         <a href="https://github.com/Scienciser"><img className="home-badgeimg" src={GitHub} ></img></a>
                         <a href="https://www.linkedin.com/in/christopher-vroegop"><img className="home-badgeimg" src={LinkedIn}></img></a>
                     </div>
                 </div>
             </div>
         </>
-
     )
 }
+
+export default HomePage;
