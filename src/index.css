@@ -14,3 +14,15 @@ body {
   color: rgb(207, 207, 207);
 }
 
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: lightblue;
+}
+
+/* visited link */
+a:visited {
+  color: lightblue;
+}

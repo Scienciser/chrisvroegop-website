@@ -27,7 +27,7 @@ function TetchrisGameInfo(props: TetchrisGameInfoProps) {
                 <button className="tetchris-button" onClick={props.leftButton}>◀</button><br/>
                 <button className="tetchris-button" id="tetchris-down" onClick={props.downButton}>▼</button><br/>
                 <button className="tetchris-button" onClick={props.rightButton}>▶</button><br/>
-                <button className="tetchris-button" onClick={props.rotateClockwiseButton}>↻</button><br/>
+                <button className="tetchris-button" id="tetchris-rotate" onClick={props.rotateClockwiseButton}>↻</button><br/>
             </div>
 
         </div>

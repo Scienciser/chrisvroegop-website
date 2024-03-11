@@ -23,8 +23,13 @@
 }
 
 .tetchris-button#tetchris-down {
-  font-size: 18px;
+  font-size: 22px;
 }
+
+.tetchris-button#tetchris-rotate {
+  font-weight: bold;
+}
+
 
 .tetchris-scoring p {
   font-size: 15px;

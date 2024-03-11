@@ -102,7 +102,7 @@ export class Shape {
                 break;
             case ShapeType.ShapeZ:
                 // Offsets: (x-1, y), (x, y), (x, y-1), (x+1, y-1)
-                this.cells = [c-1+0*w, c+0+0*w, c+0-1*w, c+1-1*w]; // [213, 214, 204, 205]
+                this.cells = [c-1+0*w, c+0+0*w, c+0-1*w, c+1-1*w]; // [213, 214, 204, 205] for std board
                 this.centre = 2;
                 this.shapeClass = "shape-z";
                 this.offsets = offsetsJLSTZ;
