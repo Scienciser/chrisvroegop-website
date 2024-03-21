@@ -1,6 +1,7 @@
 import ProfilePicture from '../assets/profile_picture.jpg';
 import GrayOutScreenshot from '../assets/grayout.png';
 import TetchrisDemo from '../assets/tetchris_demo.webm';
+import CleanExit from '../assets/cleanexit.png';
 import SpatialEquity from '../assets/spatial_equity.png';
 import AwsDev from '../assets/cert_badges/aws_developer.png';
 import AwsSolnArch from '../assets/cert_badges/aws_solutions_architect.png';
@@ -28,14 +29,13 @@ function HomePage() {
             <div className="home-content-text">
               <h3>GrayOut</h3>
               <p>Set Windows to grayscale, on a schedule.</p>
-              <br/>
+              <p>Source and builds available on <a href="https://github.com/Scienciser/GrayOut">GitHub</a>.</p>
             </div>
             <div className="image-align-right">
-              <img className="home-img" src={GrayOutScreenshot}></img>
+              <a href="https://github.com/Scienciser/GrayOut">
+                <img className="home-img" src={GrayOutScreenshot}></img>
+              </a>
             </div>
-            <a href="https://github.com/Scienciser/GrayOut">
-              <span className="panel-link"></span>
-            </a>
           </div>
           <div className="home-content-wrap home-content-flex">
             <video className="home-img" autoPlay loop muted playsInline id="home-tetchris-img" src={TetchrisDemo}></video>
@@ -48,16 +48,25 @@ function HomePage() {
             </Link>
           </div>
           <div className="home-content-wrap home-content-flex">
-            <div className='home-content-text'>
-              <h3>Spatial Equity Project Aotearoa</h3>
-              <p>An report on equitable access to amenity in New Zealand, with attached <a href="https://github.com/Scienciser/spatialequityproject">R library.</a></p>
+            <div className="home-content-text">
+              <h3>CleanExit</h3>
+              <p>Privacy-enhancing browser extension.</p>
+            <p>Available from the <a href="https://chromewebstore.google.com/detail/cleanexit/chjjljigikgecfimljpjkbmdkiiimaop">Chrome Web Store</a> or <a href="https://github.com/Scienciser/CleanExit">GitHub</a>.</p>
             </div>
             <div className="image-align-right">
-              <img className="home-img" src={SpatialEquity} height={"300px"} style={{textAlign: "right"}} />
+              <a href="https://chromewebstore.google.com/detail/cleanexit/chjjljigikgecfimljpjkbmdkiiimaop">
+                <img className="home-img" src={CleanExit} height={"300px"} style={{textAlign: "right"}} />
+              </a>
             </div>
+          </div>
+          <div className="home-content-wrap home-content-flex">
             <a href="https://github.com/Scienciser/spatialequityproject/blob/main/report/compsci380_spatial_equity_project.pdf">
-              <span className="panel-link"></span>
+              <img className="home-img" src={SpatialEquity} height={"300px"} style={{textAlign: "right"}} />
             </a>
+            <div className='home-content-text text-padding-right'>
+              <h3>Spatial Equity Project Aotearoa</h3>
+              <p>An <a href="https://github.com/Scienciser/spatialequityproject/blob/main/report/compsci380_spatial_equity_project.pdf">report</a> on equitable access to amenity in New Zealand, with attached <a href="https://github.com/Scienciser/spatialequityproject">R library.</a></p>
+            </div>
           </div>
         </div>
         <div id="home-img-wrapper">
